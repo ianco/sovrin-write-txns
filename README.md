@@ -5,7 +5,7 @@ Test of preparing transactions to write to sovrin network
 
 Scripts are in local-ledger sub-dir
 
-1. Create local wallet with DID’s
+1. Create local wallet with DID’s (for issuer local ledger)
 
 ```
 indy-cli local-ledger/local-1-create-wallet.txt
@@ -14,7 +14,7 @@ indy-cli local-ledger/local-1-create-wallet.txt
 2. Manually create any necessary DID’s on BCovrin Dev
    (use VON ledger browser)
 
-3. Create local wallet with DID’s
+3. Create local wallet with DID’s (for endorser BCovrin Dev ledger)
 
 ```
 indy-cli local-ledger/bcovrin-1-create-wallet.txt
@@ -26,13 +26,13 @@ indy-cli local-ledger/bcovrin-1-create-wallet.txt
 vi /tmp/dev_schema_1.txt
 ```
 
-4. Run script to sign schema txn
+4. Run script to sign schema txn (issuer local ledger)
 
 ```
 indy-cli local-ledger/local-2-sign-schema.txt
 ```
 
-5. Run script to write schema to ledger
+5. Run script to write schema to ledger (endorser BCovrin Dev ledger)
 
 ```
 indy-cli local-ledger/bcovrin-2-write-schema.txt
@@ -42,13 +42,13 @@ indy-cli local-ledger/bcovrin-2-write-schema.txt
 
 7. TODO how to generate cred def public key
 
-8. Run script to create cred def transaction
+8. Run script to create cred def transaction (issuer local ledger)
 
 ```
 indy-cli local-ledger/local-3-create-cred-def.txt
 ```
 
-9. Run script to write cred def to ledger
+9. Run script to write cred def to ledger (endorser BCovrin Dev ledger)
 
 ```
 indy-cli local-ledger/bcovrin-3-write-cred-def.txt
