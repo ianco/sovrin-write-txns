@@ -6,6 +6,8 @@ wallet create bcovrin_wallet key
 # manually enter key
 wallet open bcovrin_wallet key
 # manually enter key
+did new did=VePGZfzvcgmT3GTdYgpDiT
+# issuer did
 did new seed=000000000000000000000000Endorser
 # Did "AUPCKiiq1ema4fbkXYP2Kg" has been created with "~JWYNcvdrrLyDn48pMNUPaC" verkey
 did new seed=000000000000000000000000Steward1
