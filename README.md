@@ -1,6 +1,7 @@
 # sovrin-write-txns
 Test of preparing transactions to write to sovrin network
 
+
 ## Using a local ledger (Issuer) and BCovrin Dev ledger (Endorser)
 
 Local ledger is started as per sdk instructions https://github.com/hyperledger/indy-sdk#1-starting-the-test-pool-on-localhost
@@ -58,6 +59,7 @@ indy-cli issuer-3-create-cred-def.txt
 indy-cli endorser-3-write-cred-def.txt
 ```
 
+
 ## Both Issuer and Endorser using BCovrin Dev ledger
 
 BCovrin Dev is http://dev.bcovrin.vonx.io/
@@ -77,4 +79,20 @@ indy-cli bcovrin-ledger/issuer-1-create-wallet.txt
 
    i.e. `local_pool` is now pointing to `bcovin_pool`
 
+
+## Both Issuer and Endorser using local Indy ledger
+
+As above, but use the `create-wallet` scripts in the `local-ledger` folder
+
+
+## Cleanup local environment
+
+In between runs of the above:
+
+```
+rm /tmp/dev*
+rm -rf ~/.indy*
+```
+
+... and also restart local Indy ledger
 
