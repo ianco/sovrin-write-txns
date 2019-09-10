@@ -3,7 +3,11 @@ Test of preparing transactions to write to sovrin network
 
 ## Using a local ledger and BCovrin Dev ledger
 
-Scripts are in local-ledger sub-dir
+Local ledger is started as per sdk instructions https://github.com/hyperledger/indy-sdk#1-starting-the-test-pool-on-localhost
+
+BCovrin Dev is http://dev.bcovrin.vonx.io/
+
+Scripts are in `local-ledger` sub-dir
 
 1. Create local wallet with DID’s (for issuer local ledger)
 
@@ -15,6 +19,8 @@ indy-cli local-ledger/local-1-create-wallet.txt
    (use VON ledger browser)
 
 3. Create local wallet with DID’s (for endorser BCovrin Dev ledger)
+
+   Note that DID's are created manually via the ledger browser, see http://dev.bcovrin.vonx.io/browse/domain?page=89
 
 ```
 indy-cli local-ledger/bcovrin-1-create-wallet.txt
