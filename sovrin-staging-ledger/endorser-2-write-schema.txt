@@ -3,8 +3,9 @@ pool connect bcovrin_pool
 wallet open bcovrin_wallet key
 # manually enter key
 # sign with the endorser DID
-did use AUPCKiiq1ema4fbkXYP2Kg
-ledger get-nym did=AUPCKiiq1ema4fbkXYP2Kg
+did use DFuDqCYpeDNXLuc3MKooX3
+ledger get-nym did=DFuDqCYpeDNXLuc3MKooX3
+ledger get-nym did=VePGZfzvcgmT3GTdYgpDiT
 did list
 # use endorser to endorse transaction and write to ledger
 ledger load-transaction file=/tmp/dev_schema_2.txt
@@ -12,5 +13,5 @@ ledger sign-multi
 # response "y" to sign the current transaction in context
 ledger custom context
 # saves to ledger
-ledger get-schema did=VePGZfzvcgmT3GTdYgpDiT name=dev_schema version=1.0
+ledger get-schema did=VePGZfzvcgmT3GTdYgpDiT name=dev_schema version=1.3
 # get schema from ledger to get version #, etc

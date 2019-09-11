@@ -96,3 +96,11 @@ rm -rf ~/.indy*
 
 ... and also restart local Indy ledger
 
+
+
+From Lynn Bendixsen to Everyone: (11:47 AM)
+ pool(testnet):wallet(junk6):indy> did new seed=ENDORSER123450000000000000000000  Did "DFuDqCYpeDNXLuc3MKooX3" has been created with "~3iMs3sMicSkemByP9Jawft" verkey pool(testnet):wallet(junk6):indy> did use DFuDqCYpeDNXLuc3MKooX3 Did "DFuDqCYpeDNXLuc3MKooX3" has been set as active
+
+,"endorser":"DFuDqCYpeDNXLuc3MKooX3"
+
+
