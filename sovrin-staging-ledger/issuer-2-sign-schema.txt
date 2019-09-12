@@ -7,7 +7,7 @@ did use VePGZfzvcgmT3GTdYgpDiT
 #ledger get-nym did=VePGZfzvcgmT3GTdYgpDiT
 did list
 # by default use our local author DID
-ledger load-transaction file=/tmp/dev_schema_1.txt
+ledger schema name=ian-permit.ian-co version=1.0.8 attr_names=corp_num,legal_name,permit_id,permit_type,permit_issued_date,permit_status,effective_date send=false sign=false endorser=DFuDqCYpeDNXLuc3MKooX3
 ledger sign-multi
 # response "y" to sign the current transaction in context
 ledger save-transaction file=/tmp/dev_schema_2.txt

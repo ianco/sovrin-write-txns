@@ -53,7 +53,7 @@ pool_name = 'local_pool'
 
 wallet_config = json.dumps({"id": "local_wallet", "storage_type": "postgres_storage", "storage_config": {"url":"localhost:5435"}})
 wallet_credentials = json.dumps({"key": "key", "storage_credentials": {"account":"DB_USER","password":"DB_PASSWORD","admin_account":"postgres","admin_password":"mysecretpassword"}})
-trust_anchor_did = 'DFuDqCYpeDNXLuc3MKooX3'
+trust_anchor_did = 'VePGZfzvcgmT3GTdYgpDiT'
 
 def print_log(value_color="", value_noncolor=""):
     """set the colors for text."""
@@ -77,14 +77,14 @@ async def write_schema_and_cred_def():
         # 9.
         print_log('\n9. Build the SCHEMA request to add new schema to the ledger as a Steward\n')
         # get the seq # from the Sovrin schema transaction
-        seq_no = 70371
+        seq_no = 70483
         schema = {
             'seqNo': seq_no,
             'dest': 'VePGZfzvcgmT3GTdYgpDiT',
             'data': {
                 'id': 'tag',
                 'name': 'ian-permit.ian-co',
-                'version': '1.0.7',
+                'version': '1.0.8',
                 'ver': '1.0',
                 'attrNames': ['corp_num','legal_name','permit_id','permit_type','permit_issued_date','permit_status','effective_date']
             }

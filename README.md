@@ -61,13 +61,7 @@ indy-cli ~/Projects/sovrin-write-txns/sovrin-staging-ledger/endorser-1-create-wa
 ```
 
 
-7. Edit the schema transaction file to add endorser info
-
-You have to `vi /tmp/dev_schema_1.txt` to add `,"endorser":"DFuDqCYpeDNXLuc3MKooX3"` to the file (note - user your endorser DID), it should wind up looking something like:
-
-```
-{"reqId":1568248773935934000,"identifier":"VePGZfzvcgmT3GTdYgpDiT","operation":{"type":"101","data":{"name":"ian-permit.ian-co","version":"1.0.7","attr_names":["permit_id","permit_type","permit_issued_date","permit_status","effective_date","legal_name","corp_num"]}},"protocolVersion":2,"endorser":"DFuDqCYpeDNXLuc3MKooX3"}
-```
+7. (step removed)
 
 
 8. Sign the transaction with your issuer:

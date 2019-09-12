@@ -1,6 +1,6 @@
 # Run this script to create endorser wallet
 # Manually create any DID's that you need on the ledger
-pool create bcovrin_pool gen_txn_file=sandbox_sovrin_genesis.txt
+pool create bcovrin_pool gen_txn_file=/Users/icostanzo/Projects/sovrin-write-txns/sandbox_sovrin_genesis.txt
 pool connect bcovrin_pool
 wallet create bcovrin_wallet key
 # manually enter key
