@@ -29,7 +29,7 @@ Data:
 This script returns:
 {'id': 'DFuDqCYpeDNXLuc3MKooX3:3:CL:1',
  'schemaId': '1',
- 'tag': 'dev_credential_12',
+ 'tag': 'tag',
  'type': 'CL',
  'value': {'primary': {'n': '109330248353590897319389070001241417443720503932971588287006464922388229178334793336510417955875881059871543804578087088276791800083305615121644511248337970131893077241681758874562815652760517127419781690778951536164836285458183775012778319181918711231775022070055487033667781997555780000964033080223070801890480454130338986221023468272183501187404600365439161142989665555780971754563754309510943630872371340817447612828969885782344790492881494591201224675720837407955083191745600556967629527217606100951074519486650521288615897758074209367922751727352657076430733961205538551220485786837438600982766853425186252644017',
                        'r': {'age': '73308673216472493575090598174963399948529629134006496210571752239581655779012920152879390449719574107939536194125393138485840251400105908560965343195463986660046396898151291844591150186299279740115095392914394151816733033421421781471599302173575425800443185010936709144943232555123378965813972641717797624815066173821197309970706537526529635178157107747878761192927131531306789978613595162689363565628723311165111774867707907441698784714369233660014225193452769768361969161868978698182387153720193894374602878251447258528578841422721713848011884183426934563483417227006937242841853827004235408539062962437389057557466',
@@ -44,14 +44,15 @@ This script returns:
 import asyncio
 import json
 import pprint
+from ctypes import *
 
 from indy import pool, ledger, wallet, did, anoncreds
 from indy.error import ErrorCode, IndyError
 
 pool_name = 'local_pool'
 
-wallet_config = json.dumps({"id": "local_wallet"})
-wallet_credentials = json.dumps({"key": "aaa"})
+wallet_config = json.dumps({"id": "local_wallet", "storage_type": "postgres_storage", "storage_config": {"url":"localhost:5435"}})
+wallet_credentials = json.dumps({"key": "key", "storage_credentials": {"account":"DB_USER","password":"DB_PASSWORD","admin_account":"postgres","admin_password":"mysecretpassword"}})
 trust_anchor_did = 'DFuDqCYpeDNXLuc3MKooX3'
 
 def print_log(value_color="", value_noncolor=""):
@@ -69,27 +70,30 @@ async def write_schema_and_cred_def():
 
         # 4.
         print_log('\n4. Open wallet and get handle from libindy\n')
+        print(wallet_config)
+        print(wallet_credentials)
         wallet_handle = await wallet.open_wallet(wallet_config, wallet_credentials)
 
         # 9.
         print_log('\n9. Build the SCHEMA request to add new schema to the ledger as a Steward\n')
-        seq_no = 70213
+        # get the seq # from the Sovrin schema transaction
+        seq_no = 70371
         schema = {
             'seqNo': seq_no,
             'dest': 'VePGZfzvcgmT3GTdYgpDiT',
             'data': {
-                'id': '1',
-                'name': 'dev_schema',
-                'version': '1.3',
+                'id': 'tag',
+                'name': 'ian-permit.ian-co',
+                'version': '1.0.7',
                 'ver': '1.0',
-                'attrNames': ['age', 'name']
+                'attrNames': ['corp_num','legal_name','permit_id','permit_type','permit_issued_date','permit_status','effective_date']
             }
         }
         schema_data = schema['data']
 
         # 11.
         print_log('\n11. Creating and storing CRED DEFINITION using anoncreds as Trust Anchor, for the given Schema\n')
-        cred_def_tag = 'dev_credential_13'
+        cred_def_tag = 'tag'
         cred_def_type = 'CL'
         cred_def_config = json.dumps({"support_revocation": False})
 
@@ -100,8 +104,7 @@ async def write_schema_and_cred_def():
         pprint.pprint(cred_def)
         print_log('Cred def primary: ')
         cred_def_primary = cred_def['value']['primary']
-        pprint.pprint(json.dumps)
-
+        print(json.dumps(cred_def_primary))
 
     except IndyError as e:
         print('Error occurred: %s' % e)
@@ -112,4 +115,13 @@ def main():
     loop.close()
 
 if __name__ == '__main__':
+    print("Loading postgres")
+    stg_lib = CDLL("libindystrgpostgres.dylib")
+    result = stg_lib["postgresstorage_init"]()
+    if result != 0:
+        print("Error unable to load wallet storage", result)
+        parser.print_help()
+        sys.exit(0)
+    print(result)
+
     main()

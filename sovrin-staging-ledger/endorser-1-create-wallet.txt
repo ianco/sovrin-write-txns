@@ -6,17 +6,5 @@ wallet create bcovrin_wallet key
 # manually enter key
 wallet open bcovrin_wallet key
 # manually enter key
-#did new did=VePGZfzvcgmT3GTdYgpDiT
-#did new seed=00000000000000000000000MyTestDID
-# issuer did
 did new seed=ENDORSER123450000000000000000000 
 # Did "AUPCKiiq1ema4fbkXYP2Kg" has been created with "~JWYNcvdrrLyDn48pMNUPaC" verkey
-#did new seed=000000000000000000000000Steward1
-# this creates the steward DID so we can write DID's
-# Did "Th7MpTaRZVRYnPiabds81Y" has been created with "~7TYfekw4GUagBnBVCqPjiC" verkey
-#did use Th7MpTaRZVRYnPiabds81Y
-# use steward to write DID to ledger
-#ledger nym did=VePGZfzvcgmT3GTdYgpDiT verkey=~JDemkHrTixMBBdP1urLrxe
-# write our author DID to the ledger
-#ledger nym did=AUPCKiiq1ema4fbkXYP2Kg verkey=~JWYNcvdrrLyDn48pMNUPaC role=ENDORSER
-# write our endorser DID to the ledger

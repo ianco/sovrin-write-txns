@@ -1,6 +1,7 @@
 # Run this script after editing /tmp/dev_schema_1.txt
 pool connect local_pool
-wallet open local_wallet key
+load-plugin library=libindystrgpostgres.dylib initializer=postgresstorage_init
+wallet open local_wallet key storage_credentials={"account":"DB_USER","password":"DB_PASSWORD","admin_account":"postgres","admin_password":"mysecretpassword"}
 # manually enter key
 did use VePGZfzvcgmT3GTdYgpDiT
 #ledger get-nym did=VePGZfzvcgmT3GTdYgpDiT

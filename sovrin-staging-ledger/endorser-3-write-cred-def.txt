@@ -7,8 +7,6 @@ did use DFuDqCYpeDNXLuc3MKooX3
 # transaction gets signed
 ledger load-transaction file=/tmp/dev_cred_def_1.txt
 # response "y" to load the transaction
-did use DFuDqCYpeDNXLuc3MKooX3
-# now send the transaction to the endorser
 ledger sign-multi
 # endorser signs transation
 ledger custom context
