@@ -4,6 +4,8 @@ Test of preparing transactions to write to sovrin network
 
 ## Starting von-agent-template on the Sovrin Staging network with un-privileged DID's
 
+You can see this process in action here:  https://zoom.us/recording/play/D8WVfMhYakL19PYXoxTBQgBfYMH8bQO372fC75zTJplAycBSj7sTE-fmQy--RFU4?continueMode=true
+
 Indy-cli scripts are all in https://github.com/ianco/sovrin-write-txns
 
 Note that all indy-cli scripts leave you logged into the CLI when they are done (in case you want to do some more queries).  To get back to a command prompt enter `exit`.
