@@ -96,15 +96,15 @@ async def write_schema_and_cred_def():
         # 9.
         print_log('\n9. Build the SCHEMA request to add new schema to the ledger as a Steward\n')
         # get the seq # from the Sovrin schema transaction
-        seq_no = 70562
+        seq_no = 70625
         schema = {
             'seqNo': seq_no,
             'dest': 'VePGZfzvcgmT3GTdYgpDiT',
             'data': {
-                'id': 'tag',
+                'id': 'VePGZfzvcgmT3GTdYgpDiT:2:ian-permit.ian-co:1.1.5',
                 'seqNo': seq_no,
                 'name': 'ian-permit.ian-co',
-                'version': '1.1.2',
+                'version': '1.1.5',
                 'ver': '1.0',
                 'attrNames': ['corp_num','legal_name','permit_id','permit_type','permit_issued_date','permit_status','effective_date']
             }
@@ -117,8 +117,9 @@ async def write_schema_and_cred_def():
         cred_def_type = 'CL'
         cred_def_config = json.dumps({"support_revocation": False})
 
-        (cred_def_id, cred_def_json) = await anoncreds.issuer_create_and_store_credential_def(wallet_handle, trust_anchor_did, json.dumps(schema_data),
-                                                                                cred_def_tag, cred_def_type, cred_def_config)
+        (cred_def_id, cred_def_json) = await anoncreds.issuer_create_and_store_credential_def(
+                        wallet_handle, trust_anchor_did, json.dumps(schema_data),
+                        cred_def_tag, cred_def_type, cred_def_config)
         print_log('Credential definition: ')
         cred_def = json.loads(cred_def_json)
         pprint.pprint(cred_def)

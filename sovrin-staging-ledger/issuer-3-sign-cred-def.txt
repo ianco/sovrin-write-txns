@@ -1,15 +1,14 @@
-# Run this script after editing /tmp/dev_schema_1.txt
+# Run this script after creating and writing schema
 pool connect local_pool
 load-plugin library=libindystrgpostgres.dylib initializer=postgresstorage_init
 wallet open local_wallet key storage_credentials={"account":"DB_USER","password":"DB_PASSWORD","admin_account":"postgres","admin_password":"mysecretpassword"}
 # manually enter key
 did use VePGZfzvcgmT3GTdYgpDiT
-#ledger get-nym did=VePGZfzvcgmT3GTdYgpDiT
-did list
 # by default use our local author DID
-ledger load-transaction file=/tmp/dev_schema_1.txt
+# for the following we need the proper schema_id and primary key from the ledger/wallet
+ledger load-transaction file=/tmp/dev_cred_def_1.txt
 ledger sign-multi
-# response "y" to sign the current transaction in context
-ledger save-transaction file=/tmp/dev_schema_2.txt
+# transaction gets signed
+ledger save-transaction file=/tmp/dev_cred_def_2.txt
 # response "y" to save the transaction
 # this is sent to the endorser to sign and write to the other ledger

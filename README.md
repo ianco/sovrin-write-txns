@@ -61,7 +61,7 @@ indy-cli ~/Projects/sovrin-write-txns/sovrin-staging-ledger/endorser-1-create-wa
 ```
 
 
-7. (step removed)
+7. Edit the saved transaction in `/tmp/dev_schema_1.txt` to add `,"endorser":"DFuDqCYpeDNXLuc3MKooX3"`
 
 
 8. Sign the transaction with your issuer:
@@ -115,6 +115,16 @@ Make a note of the `primary` produced by this script, copy and paste it into an 
 
 ```
 indy-cli ~/Projects/sovrin-write-txns/sovrin-staging-ledger/issuer-3-create-cred-def.txt
+```
+
+
+13a. As above, edit the saved transaction in `/tmp/dev_cred_def_1.txt` to add `,"endorser":"DFuDqCYpeDNXLuc3MKooX3"`
+
+
+13b. Run the following to sign the transaction:
+
+```
+indy-cli ~/Projects/sovrin-write-txns/sovrin-staging-ledger/issuer-3-sign-cred-def.txt
 ```
 
 

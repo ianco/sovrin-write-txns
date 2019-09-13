@@ -11,3 +11,8 @@ wallet open local_wallet key storage_credentials={"account":"DB_USER","password"
 # Did "VePGZfzvcgmT3GTdYgpDiT" has been created with "~JDemkHrTixMBBdP1urLrxe" verkey
 did use VePGZfzvcgmT3GTdYgpDiT
 # by default use our local author DID
+ledger schema name=ian-permit.ian-co version=1.1.5 attr_names=corp_num,legal_name,permit_id,permit_type,permit_issued_date,permit_status,effective_date send=false sign=false
+# response "y" to save the transaction
+ledger save-transaction file=/tmp/dev_schema_1.txt
+# response "y" to save the transaction
+# manually edit the file to add ,"endorser":"DFuDqCYpeDNXLuc3MKooX3"

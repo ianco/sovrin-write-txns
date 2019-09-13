@@ -1,11 +1,11 @@
-# Run this script after creating /tmp/dev_cred_def_1.txt
+# Run this script after creating /tmp/dev_cred_def_2.txt
 pool connect bcovrin_pool
 wallet open bcovrin_wallet key
 # manually enter key
 did use DFuDqCYpeDNXLuc3MKooX3
 # use endorser DID
 # transaction gets signed
-ledger load-transaction file=/tmp/dev_cred_def_1.txt
+ledger load-transaction file=/tmp/dev_cred_def_2.txt
 # response "y" to load the transaction
 ledger sign-multi
 # endorser signs transation
