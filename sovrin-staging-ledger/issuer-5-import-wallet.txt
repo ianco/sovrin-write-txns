@@ -5,6 +5,6 @@
 # start up orgbook pointing at the sovrin staging network
 # start up the agent db (without the agent)
 load-plugin library=libindystrgpostgres.dylib initializer=postgresstorage_init
-wallet import myorg_issuer key export_path=/Users/icostanzo/Projects/sovrin-write-txns/sovrin-staging-ledger/local_wallet.export export_key storage_type=postgres_storage storage_config={"url":"localhost:5435"} storage_credentials={"account":"DB_USER","password":"DB_PASSWORD","admin_account":"postgres","admin_password":"mysecretpassword"}
+wallet import myorg_issuer key export_path=/tmp/local_wallet.export export_key storage_type=postgres_storage storage_config={"url":"localhost:5435"} storage_credentials={"account":"DB_USER","password":"DB_PASSWORD","admin_account":"postgres","admin_password":"mysecretpassword"}
 # manually enter key(s)
 wallet open myorg_issuer key storage_credentials={"account":"DB_USER","password":"DB_PASSWORD","admin_account":"postgres","admin_password":"mysecretpassword"}

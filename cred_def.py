@@ -50,8 +50,9 @@ from indy import pool, ledger, wallet, did, anoncreds
 from indy.error import ErrorCode, IndyError
 
 pool_name = 'local_pool'
+PROTOCOL_VERSION = 2
 
-wallet_config = json.dumps({"id": "local_wallet", "storage_type": "postgres_storage", "storage_config": {"url":"localhost:5435"}})
+wallet_config = json.dumps({"id": "myorg_issuer", "storage_type": "postgres_storage", "storage_config": {"url":"localhost:5435"}})
 wallet_credentials = json.dumps({"key": "key", "storage_credentials": {"account":"DB_USER","password":"DB_PASSWORD","admin_account":"postgres","admin_password":"mysecretpassword"}})
 trust_anchor_did = 'VePGZfzvcgmT3GTdYgpDiT'
 
@@ -66,7 +67,25 @@ async def write_schema_and_cred_def():
 
         '''# 2.
         print_log('\n2. Open pool ledger and get handle from libindy\n')
-        pool_handle = await pool.open_pool_ledger(config_name=pool_name, config=None)" '''
+        pool_handle = await pool.open_pool_ledger(config_name=pool_name, config=None)" 
+        '''
+
+        pool_ = {
+            'name': 'pool1'
+        }
+        print_log("Open Pool Ledger: {}".format(pool_['name']))
+        pool_['genesis_txn_path'] = "./sandbox_sovrin_genesis.txt"
+        pool_['config'] = json.dumps({"genesis_txn": str(pool_['genesis_txn_path'])})
+
+        # Set protocol version 2 to work with Indy Node 1.4
+        await pool.set_protocol_version(PROTOCOL_VERSION)
+
+        try:
+            await pool.create_pool_ledger_config(pool_['name'], pool_['config'])
+        except IndyError as ex:
+            if ex.error_code == ErrorCode.PoolLedgerConfigAlreadyExistsError:
+                pass
+        pool_['handle'] = await pool.open_pool_ledger(pool_['name'], None)
 
         # 4.
         print_log('\n4. Open wallet and get handle from libindy\n')
@@ -77,14 +96,15 @@ async def write_schema_and_cred_def():
         # 9.
         print_log('\n9. Build the SCHEMA request to add new schema to the ledger as a Steward\n')
         # get the seq # from the Sovrin schema transaction
-        seq_no = 70483
+        seq_no = 70523
         schema = {
             'seqNo': seq_no,
             'dest': 'VePGZfzvcgmT3GTdYgpDiT',
             'data': {
-                'id': 'tag',
+                'id': 'tagxxx',
+                'seqNo': seq_no,
                 'name': 'ian-permit.ian-co',
-                'version': '1.0.8',
+                'version': '1.1.0',
                 'ver': '1.0',
                 'attrNames': ['corp_num','legal_name','permit_id','permit_type','permit_issued_date','permit_status','effective_date']
             }

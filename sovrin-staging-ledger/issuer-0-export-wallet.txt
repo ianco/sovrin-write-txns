@@ -3,5 +3,5 @@ load-plugin library=libindystrgpostgres.dylib initializer=postgresstorage_init
 wallet attach myorg_issuer storage_type=postgres_storage storage_config={"url":"localhost:5435"}
 wallet open myorg_issuer key storage_credentials={"account":"DB_USER","password":"DB_PASSWORD","admin_account":"postgres","admin_password":"mysecretpassword"}
 # manually enter key
-wallet export export_path=/Users/icostanzo/Projects/sovrin-write-txns/sovrin-staging-ledger/myorg_init_wallet.export export_key
+wallet export export_path=/tmp/myorg_init_wallet.export export_key
 # manually enter key 
