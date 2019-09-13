@@ -13,5 +13,5 @@ ledger sign-multi
 # response "y" to sign the current transaction in context
 ledger custom context
 # saves to ledger
-ledger get-schema did=VePGZfzvcgmT3GTdYgpDiT name=ian-permit.ian-co version=1.1.0
+ledger get-schema did=VePGZfzvcgmT3GTdYgpDiT name=ian-permit.ian-co version=1.1.2
 # get schema from ledger to get version #, etc
