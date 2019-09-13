@@ -96,15 +96,15 @@ async def write_schema_and_cred_def():
         # 9.
         print_log('\n9. Build the SCHEMA request to add new schema to the ledger as a Steward\n')
         # get the seq # from the Sovrin schema transaction
-        seq_no = 70625
+        seq_no = 70633
         schema = {
             'seqNo': seq_no,
             'dest': 'VePGZfzvcgmT3GTdYgpDiT',
             'data': {
-                'id': 'VePGZfzvcgmT3GTdYgpDiT:2:ian-permit.ian-co:1.1.5',
+                'id': 'VePGZfzvcgmT3GTdYgpDiT:2:ian-permit.ian-co:1.1.6',
                 'seqNo': seq_no,
                 'name': 'ian-permit.ian-co',
-                'version': '1.1.5',
+                'version': '1.1.6',
                 'ver': '1.0',
                 'attrNames': ['corp_num','legal_name','permit_id','permit_type','permit_issued_date','permit_status','effective_date']
             }
