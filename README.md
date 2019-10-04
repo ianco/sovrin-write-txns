@@ -1,4 +1,4 @@
-# Depricated
+# Deprecated
 
 This whole process has been refined and integrated into [von-network](https://github.com/bcgov/von-network) via [von-network PR76](https://github.com/bcgov/von-network/pull/76).
 
