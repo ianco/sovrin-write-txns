@@ -1,3 +1,8 @@
+# Depricated
+
+This whole process has been refined and integrated into [von-network](https://github.com/bcgov/von-network) via [von-network PR76](https://github.com/bcgov/von-network/pull/76).
+
+
 # sovrin-write-txns
 Test of preparing transactions to write to sovrin network
 
